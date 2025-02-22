@@ -34,7 +34,7 @@ public class Baralho {
         }
     }
 
-    public static void print(){
+    public static void imprimirBaralho(){
         for(Carta carta : cartas){
             System.out.println(carta);
         }
@@ -43,10 +43,10 @@ public class Baralho {
     public static void main(String[] args) {
         preencherBaralho();
         System.out.println("Baralho antes: \n");
-        print();
+        imprimirBaralho();
 
         embaralhar();
         System.out.println("\n Baralho depois: \n");
-        print();
+        imprimirBaralho();
     }
 }
