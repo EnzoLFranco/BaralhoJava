@@ -3,6 +3,7 @@ import java.util.Random;
 public class Baralho {
 
     static Carta[] cartas = new Carta[56];
+    static int topo = 55;
 
     public static void preencherBaralho(){
         String[] naipes = {"Copas","Espadas","Ouros","Paus"};
@@ -34,6 +35,17 @@ public class Baralho {
         }
     }
 
+    public static boolean hasCarta() {
+        return topo >= 0;
+    }
+
+    public static Carta devolverCarta() {
+        if (hasCarta()) {
+            return cartas[topo--];
+        }
+        return null;
+    }
+
     public static void imprimirBaralho(){
         for(Carta carta : cartas){
             System.out.println(carta);
@@ -48,5 +60,17 @@ public class Baralho {
         embaralhar();
         System.out.println("\n Baralho depois: \n");
         imprimirBaralho();
+
+        System.out.println("\nDistribuindo 10 cartas:");
+        for (int i = 0; i < 10; i++) {
+            Carta carta = devolverCarta();
+            if (carta != null) {
+                System.out.println("Carta distribuída: " + carta);
+            } else {
+                System.out.println("O baralho está vazio!");
+            }
+        }
+
+        System.out.println("\nTem cartas no baralho? " + hasCarta());
     }
 }
