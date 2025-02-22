@@ -1,7 +1,7 @@
 
 public class Baralho {
 
-    static Carta[] cartas = new Carta[52];
+    static Carta[] cartas = new Carta[56];
 
     public static void preencherBaralho(){
         String[] naipes = {"Copas","Espadas","Ouros","Paus"};
