@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Baralho {
 
@@ -21,6 +22,18 @@ public class Baralho {
         }
     }
 
+    public static void embaralhar(){
+        Random random = new Random();
+        for(int i = 0; i < 50; i++){
+            int posicao1 = random.nextInt(cartas.length);
+            int posicao2 = random.nextInt(cartas.length);
+
+            Carta template = cartas[posicao1];
+            cartas[posicao1] = cartas[posicao2];
+            cartas[posicao2] = template;
+        }
+    }
+
     public static void print(){
         for(Carta carta : cartas){
             System.out.println(carta);
@@ -29,7 +42,11 @@ public class Baralho {
 
     public static void main(String[] args) {
         preencherBaralho();
+        System.out.println("Baralho antes: \n");
         print();
 
+        embaralhar();
+        System.out.println("\n Baralho depois: \n");
+        print();
     }
 }
